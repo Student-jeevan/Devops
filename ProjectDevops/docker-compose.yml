@@ -1,0 +1,15 @@
+services:
+  app:
+    build: .
+    ports:
+      - "${APP_PORT}:3000"
+    environment:
+      - DB_USER=${DB_USER}
+      - DB_PASS=${DB_PASS}  
+
+  db:
+    image: mysql:5.7
+    environment:
+      - MYSQL_ROOT_PASSWORD=${DB_PASS}
+      - MYSQL_USER=${DB_USER}
+      - MYSQL_PASSWORD=${DB_PASS}
